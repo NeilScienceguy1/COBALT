@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<head>
+    <title>COBALT</title>
+    <script src="https://cdn.jsdelivr.net/gh/foobar404/wave.js/dist/bundle.iife.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src='/js/voice.js'></script>
+    <script src="/js/styles/button.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/js/user.js"></script>
+</head>
+
+<body>
+    <input style="display:none" id='data' value=<%=user %> >
+    <%- include ("components/navbar.ejs") -%>
+    <br>
+    <br>
+    <center><big><h1 style="color: whitesmoke;">COBALT's Features</h1>
+    </center></big>
+        <div class="container2">
+            <div class="cards">
+                <div class="card-item">
+                    <div class="card-image">
+                    </div>
+                    <div class="card-info">
+                        <h2 class="card-title">Send Emails</h2>
+                        <p class="card-intro">Send emails using nothing but your voice, with COBALT! Specify your from
+                            email before hand and after that, just send emails by telling COBALT your subject, sender
+                            address and the body!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cards">
+                <div class="card-item">
+                    <div class="card-image">
+                    </div>
+                    <div class="card-info">
+                        <h2 class="card-title">Search Wikipedia</h2>
+                        <p class="card-intro">Dont know what a certain word or thing means? Just search it up with one
+                            word, using COABLT. He'll immediately give you a summary of your topic!<br><br>
+                        
+                        <b>Commands:</b>search {term}, wikipedia {term}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="cards">
+                <div class="card-item">
+                    <div class="card-image">
+                    </div>
+                    <div class="card-info">
+                        <h2 class="card-title">Keep a track of tasks!</h2>
+                        <p class="card-intro">Forgetful much? Well watch that disappear with COBALT's task management.
+                            Tell him that you have a meeting after an hour and after hour, you will receive a desktop
+                            noitification to remind you to be on time!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="cards">
+                <div class="card-item">
+                    <div class="card-image">
+                    </div>
+                    <div class="card-info">
+                        <h2 class="card-title">Check the weather!</h2>
+                        <p class="card-intro">
+                            Check the local weather of your city by issuing a single command! It tells you all the
+                            details of your conditions and whether its an indoor day or an outdoor day!<br><br>
+                        
+                        <b>Commands:</b> weather in {city}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="cards">
+                <div class="card-item">
+                    <div class="card-image">
+                    </div>
+                    <div class="card-info">
+                        <h2 class="card-title">Coronavirus Stats</h2>
+                        <p class="card-intro">Don't want to look at those grim numbers? Well, now you can hear them! Get
+                            know stats by country or global stats as well!
+                        <br><br>
+                        
+                        <b>Commands:</b> world covid stats, please tell me global covid stats, covid worldwide, covid stats in {country}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="cards">
+                <div class="card-item">
+                    <div class="card-image">
+                    </div>
+                    <div class="card-info">
+                        <h2 class="card-title">Check Github</h2>
+                        <p class="card-intro">Check a github users profile witn your voice! Using COBALT you'll never need to open github again
+                        
+                        <br><br>
+                        
+                        <b>Commands:</b> github
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include ("components/footer.ejs") -%>
+</body>
+
+</html>

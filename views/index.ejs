@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<head>
+	<title>COBALT</title>
+	<script src="https://cdn.jsdelivr.net/gh/foobar404/wave.js/dist/bundle.iife.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+		crossorigin="anonymous"></script>
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	<link rel="stylesheet" href="/css/footer.css">
+	<link rel="stylesheet" href="/css/style.css">
+	<script src='/js/voice.js'></script>
+	<script src="/js/styles/button.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="/js/user.js"></script>
+</head>
+
+<body>
+	<input style="display:none" id='data' value=<%=user %> >
+	<%- include ("components/navbar.ejs") -%>
+		<div class='assistant' style='align-self: center !important; align-items:center !important'>
+			<div class='none heart' id='heart'>
+
+			</div>
+			<button class='btn btn-danger voice' id='mic-but' style="border-radius: 50%; width: 75px; height: 75px"
+				onclick="buttonClick();
+                if (document.getElementById('mute-icon').classList.contains('fa-microphone-alt')) {
+					getSpeech()
+				} else {
+					recognition.stop()
+				}
+				">
+				<i class="fas fa-microphone-slash" style='font-size:30px' id='mute-icon'></i>
+			</button>
+		</div>
+		<br>
+		<br>
+		<textarea id='textarea' class="form-control" id="exampleFormControlTextarea1" rows="3" readonly
+			style="width: 60%; margin-left:20%; margin-top:2%"></textarea>
+		<button class='btn btn-danger stop' onclick="stopSpeaking()">Stop Speaking</button>
+		<br>
+		<br>	
+		<hr style="color: whitesmoke;">
+		<h2 style="align-self: center; color: whitesmoke; margin-left: 43% !important;">Add a Todo</h2>
+		<p style="align-self: center; color: whitesmoke; margin-left: 30% !important;">I will notify you when your event begins. Do not reload the page after submitting a todo!</p>
+		<br>
+		<input class="form-control" placeholder="Content..." style="width: 20%; margin-left: 39%;" id='todo'>
+		<br> 
+		<input class="form-control" type='number' placeholder="Duration In Hours..." style="width: 20%; margin-left: 39%;" id='dur'>
+		<br>
+		<button class="btn btn-primary" style="margin-left: 46%;" onclick="submitTodo()">Submit</button>
+
+		<%- include ("components/footer.ejs") -%>
+			<%= console.log(user) %>
+				<script>
+					let button = document.getElementById("mic-but");
+
+					if (window.innerWidth < 1200) {
+						const heart = document.getElementById("heart");
+
+						heart.style.display = "none";
+
+						button.style.position = ""
+
+					}
+
+					function buttonClick() {
+						if (innerWidth > 1200) {
+							const heart = document.getElementById("heart");
+							heart.style.display = "block"
+							heart.classList.toggle("none");
+							button.classList.toggle("absolute")
+						}
+
+						if (window.innerWidth < 1200) {
+							const heart = document.getElementById("heart");
+
+
+							if (heart.style.display !== "none") {
+								heart.style.display = "none";
+							}
+
+							button.style.position = ""
+
+							button.classList.remove("absolute")
+
+						}
+						if (
+							document.getElementById("mute-icon").className === "fas fa-microphone-alt"
+						) {
+							document.getElementById("mute-icon").className = "fas fa-microphone-slash";
+						} else {
+							document.getElementById("mute-icon").className = "fas fa-microphone-alt";
+						}
+					}
+				</script>
+				<script>
+					let userValue = document.getElementById("data");
+
+
+					localStorage.setItem("User", `<%-JSON.stringify(user)%>`)
+				</script>
+</body>
+
+</html>
